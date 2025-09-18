@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijak Bermedia Sosial - Jangan Asal Sebar!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --dark-text: #e0e0e0;
+            --dark-border: #333;
+            --accent: #8f94fb;
+            --accent-dark: #4e54c8;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: var(--dark-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--dark-border);
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-links li {
+            margin: 5px 15px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to right, var(--accent-dark), var(--accent));
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px;
+            color: var(--accent);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark-text);
+        }
+        
+        .hero {
+            position: relative;
+            padding: 40px 30px;
+            text-align: center;
+            background: var(--dark-card);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .card {
+            background: var(--dark-card);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card h3::before {
+            content: "•";
+            margin-right: 12px;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .tips-section {
+            background: rgba(40, 40, 40, 0.6);
+            padding: 35px;
+            border-radius: 12px;
+            margin: 40px 0;
+            border: 1px solid var(--dark-border);
+        }
+        
+        .tips-list {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+        
+        .tips-list li {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            color: var(--dark-text);
+        }
+        
+        .tip-item {
+            background: var(--dark-card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+            border: 1px solid var(--dark-border);
+        }
+        
+        .tip-item h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .tip-item h4::before {
+            content: "✓";
+            margin-right: 12px;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(30, 30, 30, 0.9);
+            color: var(--dark-text);
+            border-top: 1px solid var(--dark-border);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero-img {
+                height: 300px;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 8px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .hero-img {
+                height: 250px;
+                font-size: 1rem;
+            }
+            
+            .hero, .content {
+                padding: 20px 15px;
+            }
+            
+            .tips-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#pengertian">Pengertian</a></li>
+                <li><a href="#pentingnya">Pentingnya</a></li>
+                <li><a href="#dampak">Dampak</a></li>
+                <li><a href="#strategi">Strategi</a></li>
+                <li><a href="#tips">Tips</a></li>
+            </ul>
+        </div>
+    </div>
+        <section class="hero" id="pengertian">
+            <div class="hero-img">
+                <img src="WhatsApp Image 2025-09-18 at 4.40.23 PM.jpeg" alt="" srcset="">
+            </div>
+            <div class="hero-content">
+                <h2>Apa Itu Bijak Bermedia Sosial?</h2>
+                <p>Bijak bermedia sosial adalah kemampuan menggunakan media sosial secara sadar, bertanggung jawab, dan etis, dengan mempertimbangkan dampak dari setiap tindakan yang dilakukan di dunia maya. Dalam kehidupan modern saat ini, media sosial menjadi bagian yang tak terpisahkan dari aktivitas sehari-hari. Orang menggunakannya untuk berkomunikasi, mencari informasi, berbagi pengalaman, hingga membangun identitas diri. Namun, di balik semua kemudahan dan manfaat itu, media sosial juga memiliki potensi risiko yang besar jika tidak digunakan dengan bijak. Sikap bijak dalam bermedia sosial mencakup beberapa hal penting. Pertama, berpikir terlebih dahulu sebelum membagikan informasi, memastikan bahwa apa yang diunggah tidak menyinggung atau merugikan orang lain. Kedua, memverifikasi kebenaran informasi sebelum membagikannya, untuk menghindari penyebaran hoaks atau berita bohong. Ketiga, menjaga etika dalam berkomunikasi, dengan menggunakan bahasa yang sopan dan tidak menyinggung perasaan orang lain.</p>
+            </div>
+        </section>
+        
+        <section class="content">
+            <div class="card" id="pentingnya">
+                <h3>Mengapa Bijak Bermedia Sosial Itu Penting?</h3>
+                <p>Media sosial telah mengubah cara kita berkomunikasi dan berinteraksi. Dengan jutaan pengguna aktif setiap harinya, platform media sosial memiliki pengaruh yang sangat besar dalam membentuk opini publik dan menyebarkan informasi. Namun, kekuatan ini juga membawa tanggung jawab besar. Penyebaran informasi yang tidak bertanggung jawab dapat menyebabkan berbagai masalah, mulai dari kesalahpahaman pribadi hingga kerusuhan sosial. Oleh karena itu, bijak dalam menggunakan media sosial bukan lagi sekadar pilihan, melainkan kebutuhan. Setiap individu yang aktif di media sosial harus menyadari bahwa kata-kata dan konten yang dibagikan dapat memiliki dampak jangka panjang, baik bagi diri sendiri maupun orang lain. Salah satu alasan pentingnya bijak bermedia sosial adalah untuk menghindari penyebaran informasi yang salah atau hoax. Sering kali, seseorang tanpa sadar membagikan berita bohong karena tidak memverifikasi kebenarannya terlebih dahulu. Hal ini bisa menimbulkan kepanikan, kesalahpahaman, atau bahkan konflik antarindividu maupun kelompok. Dengan bersikap bijak, kita bisa membantu menciptakan ekosistem digital yang lebih sehat dan dapat dipercaya.</p>
+            </div>
+            
+            <div class="card" id="dampak">
+                <h3>Dampak Negatif Media Sosial yang Tidak Bijak</h3>
+                <p>Penggunaan media sosial yang tidak bijak dapat menimbulkan berbagai dampak negatif, antara lain:</p>
+                <p><strong>Penyebaran Hoax dan Disinformasi</strong> - Informasi palsu dapat menyebar dengan cepat dan menyebabkan kepanikan serta kesalahpahaman.</p>
+                <p><strong>Cyberbullying</strong> - Komentar negatif dan ujaran kebencian dapat menyebabkan trauma psikologis pada korban.</p>
+                <p><strong>Pencurian Identitas dan Data Pribadi</strong> - Informasi pribadi yang dibagikan secara sembarangan dapat disalahgunakan oleh pihak tidak bertanggung jawab.</p>
+                <p><strong>Kecanduan Media Sosial</strong> - Penggunaan berlebihan dapat mengganggu produktivitas dan kesehatan mental.</p>
+                <p><strong>Terjerumus dalam konten negatif atau tidak pantas</strong> - Foto, data diri, atau unggahan pribadi bisa dicuri lalu disalahgunakan untuk membuat akun palsu atau melakukan penipuan atas nama kita.</p>
+                
+            </div>
+            
+            <div class="card" id="strategi">
+                <h3>Strategi Bermedia Sosial dengan Bijak</h3>
+                <p>Berikut adalah beberapa strategi yang dapat diterapkan untuk menjadi pengguna media sosial yang lebih bijak:</p>
+                <p><strong>Verifikasi Informasi</strong> - Selalu pastikan kebenaran informasi sebelum membagikannya kepada orang lain.</p>
+                <p><strong>Jaga Privasi</strong> - Batasi informasi pribadi yang dibagikan dan gunakan pengaturan privasi yang tersedia.</p>
+                <p><strong>Hormati Perbedaan</strong> - Hargai pendapat dan pandangan yang berbeda dengan milik Anda.</p>
+                <p><strong>Pikirkan Dampak Jangka Panjang</strong> - Pertimbangkan konsekuensi dari unggahan Anda di masa depan.</p>
+                <p><strong>Batas Waktu Penggunaan</strong> - Alokasikan waktu tertentu untuk media sosial agar tidak mengganggu aktivitas lainnya.</p>
+            </div>
+            
+            <div class="tips-section" id="tips">
+                <h2>Tips Praktis Bermedia Sosial</h2>
+                
+                <div class="tip-item">
+                    <h4>Tips</h4>
+                    <ol class="tips-list">
+                        <li>Berpikir sebelum membagikan
+                        Jangan asal posting! Pastikan konten yang dibagikan tidak menyinggung, menyesatkan, atau merugikan pihak lain.</li>
+                        <li>Jaga etika dan sopan santun
+                        Gunakan bahasa yang baik dan sopan, meskipun hanya di dunia maya. Ingat, jejak digital bisa bertahan lama.</li>
+                        <li>Saring informasi sebelum percaya atau sebar
+                        Cek kebenaran informasi sebelum menyebarkannya, terutama berita atau isu sensitif.</li>
+                        <li>Jaga privasi pribadi dan orang llain
+                        Jangan sembarangan membagikan data pribadi atau informasi milik orang lain tanpa izin.</li>
+                        <li>Gunakan media sosial untuk hal positif
+                        Bagikan hal-hal yang inspiratif, edukatif, dan membawa dampak baik bagi orang lain.</li>
+                        <li>Bijak menghadapi perbedaan pendapat
+                        Hindari debat tidak penting, hargai sudut pandang orang lain, dan jangan mudah tersulut emosi.</li>
+                        <li>Hindari konten negatif
+                        Jangan ikut menyebarkan ujaran kebencian, pornografi, kekerasan, atau konten yang memicu konflik.</li>
+                        <li>Atur waktu penggunaan
+                        Gunakan media sosial secara seimbang agar tidak kecanduan dan tetap produktif dalam kehidupan nyata.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+</body>
+</html>
